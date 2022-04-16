@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject navigationArrow;
     [SerializeField] float rotationRate = 5f;
     [SerializeField] Image hpBar;
+    [SerializeField] GameObject gameOverUI;
 
     private float hpPoint;
     private SpawnManager checkPoint;
@@ -41,7 +43,6 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-           
             hpPoint -= 0.10f;
             HPChecker();
         }
@@ -53,6 +54,13 @@ public class PlayerController : MonoBehaviour
 
     private void GameOver ()
     {
+        Time.timeScale = 0;
+        gameOverUI.SetActive(true);
+    }
 
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 0);
+        Time.timeScale = 1;
     }
 }

@@ -17,6 +17,10 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        MoveControl();
+    }
+    private void MoveControl()
+    {
         MoveForce += carPos.forward * MoveSpeed * joystick.Vertical * Time.deltaTime;
         carPos.position += MoveForce * Time.deltaTime;
 

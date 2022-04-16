@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
 {
-    //[SerializeField] Animation anim;
-
     [SerializeField] Transform animField;
     [SerializeField] float rotationRate = 1f;
     [SerializeField] float ScaleRate = 1f;
@@ -44,9 +42,8 @@ public class CheckPoint : MonoBehaviour
             animVector = new Vector3(scaleValue, 1.5f, scaleValue);
             animField.localScale = animVector;
            
-            // Debug.Log("Anim objSize = " + animField.localScale);
+            
         }
-
         if (time >= 5)
         {
             Destroy(gameObject);

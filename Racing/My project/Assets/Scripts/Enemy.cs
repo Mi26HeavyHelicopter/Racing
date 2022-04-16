@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
+ 
     public float speed = 10.0f;
     private Rigidbody enemyRb;
     private Transform playerCordinate;
-
     private void Awake()
     {
         enemyRb = GetComponent<Rigidbody>();
@@ -20,8 +19,6 @@ public class Enemy : MonoBehaviour
         Vector3 lookDerection = (playerCordinate.position - transform.position).normalized;
         transform.LookAt(playerCordinate.position);
         enemyRb.AddForce(lookDerection * speed);
-        
     }
- 
 }
 
