@@ -6,7 +6,7 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField] GameObject prefabCheckPoint;
     [SerializeField] List<GameObject> policeCar;
-    public GameObject checkPoint;
+    [HideInInspector] public GameObject checkPoint;
     public bool checkPointExist = false;
 
     private void Update()
